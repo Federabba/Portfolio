@@ -33,7 +33,7 @@ document.getElementById('icSkill').innerHTML = icons.bolt;
 document.getElementById('icHobby').innerHTML = icons.compass;
 
 /* ---------------- Skills chips (inside Competenze square) ---------------- */
-const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Team Generator','ChatGPT','Claude','GitHub','Vercel','Organisation','Problem-solving','Resourcefulness'];
+const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Loomly','Team Generator','ChatGPT','Claude','GitHub','Vercel','Organisation','Problem-solving','Resourcefulness'];
 const skillsChips = document.getElementById('skillsChips');
 skills.forEach(s => {
   const el = document.createElement('span');
@@ -59,7 +59,7 @@ const roles = [
   { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'', badge:'SG',
     points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
   { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'', badge:'SG',
-    points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light coding, and graphic work for brochures']}
+    points:['Design-led campaigns, brand storytelling, and creative assets','Website development with HTML/CSS, and graphic work for brochures']}
 ];
 const expTrack = document.getElementById('expTrack');
 roles.forEach((r, i) => {
