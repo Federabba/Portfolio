@@ -59,7 +59,7 @@ const roles = [
   { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'', badge:'SG',
     points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
   { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'', badge:'SG',
-    points:['Design-led campaigns, brand storytelling, and creative assets','Website development with HTML/CSS, and graphic work for brochures']}
+    points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light HTML/CSS, graphic work for brochures']}
 ];
 const expTrack = document.getElementById('expTrack');
 roles.forEach((r, i) => {
