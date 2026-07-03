@@ -33,7 +33,7 @@ document.getElementById('icSkill').innerHTML = icons.bolt;
 document.getElementById('icHobby').innerHTML = icons.compass;
 
 /* ---------------- Skills chips (inside Competenze square) ---------------- */
-const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Organisation','Problem-solving','Resourcefulness'];
+const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Team Generator','ChatGPT','Claude','GitHub','Vercel','Organisation','Problem-solving','Resourcefulness'];
 const skillsChips = document.getElementById('skillsChips');
 skills.forEach(s => {
   const el = document.createElement('span');
@@ -44,7 +44,7 @@ skills.forEach(s => {
 
 /* ---------------- Esperienze: central alternating timeline ---------------- */
 const roles = [
-  { date:'May 2021 — Jul 2021', role:'Social Media and Marketing Intern', co:'KBM #FinesseMyFinance', logo:'', badge:'KBM',
+  { date:'May 2021 — Jul 2021', role:'Social Media and Marketing Intern', co:'KBM #FitnessMyFinance', logo:'', badge:'KBM',
     points:['Social media content, managed via Buffer','Campaigns and data analysis, team collaboration via Trello']},
   { date:'Jul 2021 — Sep 2021', role:'Digital Marketing Intern', co:'The Artisan Food Company', logo:'', badge:'A',
     points:['Connected with influencers and bloggers','Client relationships and social promotion, incl. GiftBox initiatives']},
@@ -59,7 +59,7 @@ const roles = [
   { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'', badge:'SG',
     points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
   { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'', badge:'SG',
-    points:['Design-led campaigns and brand storytelling','Graphic work: brochures and creative assets']}
+    points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light coding, and graphic work for brochures']}
 ];
 const expTrack = document.getElementById('expTrack');
 roles.forEach((r, i) => {
