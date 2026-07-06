@@ -127,11 +127,18 @@ const myWorkCompanies = {
   'MPM Drive': {
     role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
     blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
+  },
+  'Spiran Ltd.': {
+    role:'Senior Marketing Executive (Freelance)', period:'Feb 2022 — Jan 2023',
+    blurb:'At Spiran I kept the website updated, created and ran the company\'s recipe blog, and managed social media — alongside a sales role, getting on the phone with prospective customers to talk through the products and convert them into buyers. To support customer retention and lead generation, I founded and edited the Spiran Magazine, a quarterly editorial publication spread through email marketing, combining product storytelling with wider lifestyle content across three published issues.'
   }
 };
 const workItems = [
   {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
-  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'}
+  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'},
+  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'First issue of the quarterly editorial magazine, spread via email marketing to customers and prospects.', tag:'Content & email marketing', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Second issue, building on the same editorial format to support retention and repeat sales.', tag:'Content & email marketing', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Third issue, closing out a full quarterly publishing cycle for the brand.', tag:'Content & email marketing', company:'Spiran Ltd.'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
