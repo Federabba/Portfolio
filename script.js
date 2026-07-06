@@ -127,18 +127,11 @@ const myWorkCompanies = {
   'MPM Drive': {
     role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
     blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
-  },
-  'Spiran Ltd.': {
-    role:'Senior Marketing Executive (Freelance)', period:'Feb 2022 — Jan 2023',
-    blurb:'At Spiran I kept the website updated, created and ran the company\'s recipe blog, and managed social media — alongside a sales role, getting on the phone with prospective customers to talk through the products and convert them into buyers. To support customer retention and lead generation, I founded and edited the Spiran Magazine, a quarterly editorial publication spread through email marketing, combining product storytelling with wider lifestyle content across three published issues.'
   }
 };
 const workItems = [
   {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
-  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'},
-  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'First issue of the quarterly editorial magazine, spread via email marketing to customers and prospects.', tag:'Content & email marketing', company:'Spiran Ltd.'},
-  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Second issue, building on the same editorial format to support retention and repeat sales.', tag:'Content & email marketing', company:'Spiran Ltd.'},
-  {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Third issue, closing out a full quarterly publishing cycle for the brand.', tag:'Content & email marketing', company:'Spiran Ltd.'}
+  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
@@ -286,10 +279,16 @@ const interviewCaseStudies = [
     approach:'Built on a full SWOT analysis and audience segmentation (B2C lifestyle audience and B2B trade/hospitality), then developed two distinct campaign concepts to reach each side of that audience.',
     execution:'"Traditions Matter" — a black-and-white campaign using an original personal photograph to evoke authenticity and Italian tradition, aimed at B2C. "You & Us Originally Tasty" — a vibrant product-led campaign highlighting freshness and the colours of the Italian flag, aimed at B2B trade press and hospitality buyers.',
     skills:['SWOT analysis','Audience segmentation','Campaign concept development','Original photography','RACE framework','Budget planning'],
-    pdfs:[{label:'Campaign Deck', file:'la-tua-pasta-campaign.pdf'},{label:'Coordinator Task', file:'la-tua-pasta-coordinator.pdf'}] }
+    pdfs:[{label:'Campaign Deck', file:'la-tua-pasta-campaign.pdf'},{label:'Coordinator Task', file:'la-tua-pasta-coordinator.pdf'}] },
+  { sector:'Telecoms', title:'County Broadband', sub:'Full-fibre broadband — multi-channel campaign concept',
+    brief:'Design a multi-channel content plan for County Broadband to educate 25–35 year old leads on the benefits of full fibre over mixed fibre, spanning a YouTube video concept, an email template, social media posts and an SEO blog.',
+    approach:'Anchored every format in a single, simple idea — speed — and built it around a racing analogy that makes a technical difference (full fibre vs. mixed fibre) instantly easy to grasp: two riders taking the same route, one running straight through, the other slowed down each time its signal has to switch from cable to copper wire. Chose a well-known motorsport personality as the "real fibre" rider to give the concept instant recognition and appeal with the target age group, then adapted the same core message in tone and format across video, email, social and blog.',
+    execution:'Storyboarded a YouTube video treatment built around the racing challenge, explaining the fibre vs. mixed-fibre difference in under 30 seconds. Drafted an email template with sourced imagery, optimised for open and click-through rate, positioning full fibre as the fix for slow downloads and everyday connectivity frustrations. Designed two comparison social posts ("Spot the difference" / "Feel the difference") contrasting the speed of the two connection types, plus a B2B-facing post ("The soul of every business") on the importance of a fast connection for companies. Wrote an SEO blog post on why full fibre matters, framed around time, safety and control.',
+    skills:['Campaign concepting','Video treatment & storyboarding','Email marketing design','Social media content creation','SEO blog writing','Audience-tailored messaging'],
+    pdfs:[{label:'Campaign Deck', file:'county-broadband-case-study.pdf'}] }
 ];
 
-const sectors = ['All','Advertising','E-commerce & Fashion','Estates','FMCG'];
+const sectors = ['All','Advertising','E-commerce & Fashion','Estates','FMCG','Telecoms'];
 const sectorFiltersEl = document.getElementById('sectorFilters');
 const interviewGrid = document.getElementById('interviewGrid');
 
