@@ -20,7 +20,6 @@ const icons = {
   ai: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M8 15c1.2 1 2.6 1.5 4 1.5s2.8-.5 4-1.5"/></svg>',
   pdf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
   video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3"/></svg>',
-  image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
   arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   grad: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>',
   award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>',
@@ -109,15 +108,13 @@ document.querySelectorAll('.ptab').forEach(tab => {
 function workCard(w){
   const el = document.createElement('div');
   el.className = 'work-card';
-  const actionLabel = w.type === 'pdf' ? 'Download PDF' : w.type === 'video' ? 'Watch video' : 'View image';
-  const href = `${w.file}`;
-  const thumb = w.type === 'image' ? `<a href="${href}" target="_blank" class="work-thumb"><img src="${w.file}" alt="${w.title}" loading="lazy"></a>` : '';
+  const actionLabel = w.type === 'pdf' ? 'Download PDF' : 'Watch video';
+  const href = w.type === 'pdf' ? `${w.file}` : `${w.file}`;
   el.innerHTML = `
     <div class="work-top">
       <div class="work-icon ${w.type}">${icons[w.type]}</div>
       <span class="work-type">${w.type}</span>
     </div>
-    ${thumb}
     <h4>${w.title}</h4>
     <p>${w.desc}</p>
     <span class="work-tag">${w.tag}</span>
@@ -137,7 +134,7 @@ const myWorkCompanies = {
   },
   'County Broadband': {
     role:'Digital Marketing Executive', period:'Oct 2022 — Dec 2023',
-    blurb:'At County Broadband, a full-fibre broadband provider, I planned and delivered seasonal campaigns end to end — social media, Mailchimp email marketing, and post-campaign analysis. Christmas was the flagship moment each year: in 2022, a community-first campaign built around a village pop-up activation and prize draw; in 2023, a fully integrated "Full Fibre Christmas" content plan spanning social, email, PR and a branded festive game. The case study below covers the strategy and creative across both years, with a selection of the email designs produced.'
+    blurb:'At County Broadband, a full-fibre broadband provider, I planned and delivered seasonal marketing campaigns end to end — social media, Mailchimp email marketing, and post-campaign analysis — working alongside the wider marketing, design and PR team. Each card below is a self-contained case study for a single seasonal campaign.'
   }
 };
 const workItems = [
@@ -146,11 +143,7 @@ const workItems = [
   {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'Launch issue: saffron quality guide, spices & wellness, restaurant review and a traditional Spanish recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
-  {type:'pdf', file:'county-broadband-christmas-campaigns.pdf', title:'Christmas Campaigns 2022–2023', desc:'Two years of seasonal campaign strategy and multi-channel content — social, email, PR and pop-up activation.', tag:'Campaign strategy & content planning', company:'County Broadband'},
-  {type:'image', file:'county-broadband-email-price.png', title:'Christmas Email — Price Offer', desc:'Mailchimp campaign promoting 900 Mbps for £49.99, part of the 2023 "Full Fibre Christmas" email series.', tag:'Email marketing design', company:'County Broadband'},
-  {type:'image', file:'county-broadband-email-speed.png', title:'Christmas Email — Speed', desc:'Speed-focused Mailchimp design from the 2023 Christmas email series.', tag:'Email marketing design', company:'County Broadband'},
-  {type:'image', file:'county-broadband-email-reliability.png', title:'Christmas Email — Reliability', desc:'Reliability-focused Mailchimp design, highlighting the My CB Wi-Fi app and local customer service.', tag:'Email marketing design', company:'County Broadband'},
-  {type:'image', file:'county-broadband-email-game.png', title:'Christmas Email — Samurai Santa Game', desc:'Launch email for the branded "Samurai Santa" festive game, part of the 2023 engagement mechanic.', tag:'Email marketing design', company:'County Broadband'}
+  {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Christmas Campaign', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation, with a look at the 2023 email designs.', tag:'Seasonal campaign case study', company:'County Broadband'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
