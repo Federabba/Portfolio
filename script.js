@@ -127,11 +127,18 @@ const myWorkCompanies = {
   'MPM Drive': {
     role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
     blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
+  },
+  'Spiran Ltd.': {
+    role:'Senior Marketing Executive (Freelance)', period:'Feb 2022 — Jan 2023',
+    blurb:'At Spiran Ltd., a single-origin saffron company, I managed the website and built out a new recipe blog, ran social media and Mailchimp email marketing, and worked directly on the sales side too — calling and converting leads to sell the product. My flagship project was founding and editing Spiran Magazine: three quarterly issues blending recipes, food culture and product storytelling, distributed to the community and promoted through email marketing to drive engagement and sales.'
   }
 };
 const workItems = [
   {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
-  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'}
+  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'},
+  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'Launch issue: saffron quality guide, spices & wellness, restaurant review and a traditional Spanish recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
