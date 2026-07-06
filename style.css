@@ -241,7 +241,7 @@
   .cs-card{ border:1.5px solid rgba(241,246,243,0.2); border-radius:14px; overflow:hidden; background:var(--card); color:var(--ink); }
   .cs-head{ display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 24px; cursor:pointer; flex-wrap:wrap; }
   .cs-head-left{ display:flex; align-items:center; gap:16px; }
-  .cs-index{ font-family:var(--font-mono); font-size:12px; color:var(--teal); border:1.5px dashed var(--line); border-radius:8px; padding:6px 10px; }
+  .cs-index{ font-family:var(--font-mono); font-size:12px; color:var(--teal); border:1.5px dashed var(--line); border-radius:8px; padding:6px 10px; width:110px; text-align:center; white-space:normal; line-height:1.35; flex-shrink:0; }
   .cs-title{ font-family:var(--font-display); font-size:19px; }
   .cs-sub{ font-family:var(--font-hand); font-size:16px; color:var(--coral); margin-top:2px; }
   .cs-chevron{ transition:transform .3s ease; color:var(--teal); flex-shrink:0; }
@@ -261,8 +261,9 @@
   .cs-result .num{ font-family:var(--font-display); font-size:21px; color:var(--teal-deep); }
   .cs-result .lbl{ font-size:11px; color:var(--ink-soft); margin-top:2px; }
   .cs-actions{ display:flex; gap:12px; flex-wrap:wrap; }
-  .cs-actions .btn-sm{ min-width:220px; justify-content:center; text-align:center; }
-  .cs-actions .btn-sm svg{ width:9px; height:9px; }
+  .cs-actions .btn-sm{ width:150px; height:64px; padding:8px 16px; border-radius:32px; white-space:normal; line-height:1.25; text-align:center; }
+  .cs-actions .btn-sm svg{ width:24px; height:24px; flex-shrink:0; }
+  .cs-actions .btn-sm svg{ width:16px; height:16px; }
 
   /* ---------- CONTACT ---------- */
   .contact-section{ background:var(--paper); }
