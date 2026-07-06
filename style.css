@@ -259,6 +259,7 @@
   .cs-result .num{ font-family:var(--font-display); font-size:21px; color:var(--teal-deep); }
   .cs-result .lbl{ font-size:11px; color:var(--ink-soft); margin-top:2px; }
   .cs-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+  .cs-actions .btn-sm{ min-width:220px; justify-content:center; text-align:center; }
 
   /* ---------- CONTACT ---------- */
   .contact-section{ background:var(--paper); }
