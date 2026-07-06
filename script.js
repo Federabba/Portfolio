@@ -33,7 +33,7 @@ document.getElementById('icSkill').innerHTML = icons.bolt;
 document.getElementById('icHobby').innerHTML = icons.compass;
 
 /* ---------------- Skills chips (inside Competenze square) ---------------- */
-const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Loomly','Team Generator','ChatGPT','Claude','GitHub','Vercel','Organisation','Problem-solving','Resourcefulness'];
+const skills = ['WordPress','Shopify','Mailchimp','Mailmodo','Hootsuite','Later','Buffer','HubSpot','Trello','Slack','Adobe InDesign','Canva','Microsoft Office','Web development','Loomly','Team Generator','ChatGPT','Claude','GitHub','Vercel','Organisation','Problem-solving','Resourcefulness'];
 const skillsChips = document.getElementById('skillsChips');
 skills.forEach(s => {
   const el = document.createElement('span');
@@ -85,7 +85,10 @@ roles.forEach((r, i) => {
 const expTrackOuter = document.getElementById('expTrackOuter');
 requestAnimationFrame(() => {
   const lastNode = expTrack.querySelector('.exp-node:last-child');
-  if (lastNode) lastNode.scrollIntoView({ inline: 'center', block: 'nearest' });
+  if (lastNode) {
+    const targetLeft = lastNode.offsetLeft - (expTrackOuter.clientWidth - lastNode.offsetWidth) / 2;
+    expTrackOuter.scrollLeft = Math.max(0, targetLeft);
+  }
 });
 document.getElementById('expPrev').addEventListener('click', () => expTrackOuter.scrollBy({left:-360, behavior:'smooth'}));
 document.getElementById('expNext').addEventListener('click', () => expTrackOuter.scrollBy({left:360, behavior:'smooth'}));
