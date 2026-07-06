@@ -157,6 +157,46 @@ function closeLightbox(){
 function workCard(w){
   const el = document.createElement('div');
   el.className = 'work-card';
+
+  if (w.type === 'fan'){
+    el.classList.add('work-fan-card');
+    const stackIcon = icons.image;
+    const n = w.images.length;
+    const center = (n - 1) / 2;
+    const fanItemsHtml = w.images.map((im, i) => {
+      const offset = i - center;
+      const closed = `translate(calc(-50% + ${offset * 7}px), ${Math.abs(offset) * 3}px) rotate(${offset * 5}deg)`;
+      const open = `translate(calc(-50% + ${offset * 92}px), ${Math.abs(offset) * 16}px) rotate(${offset * 13}deg)`;
+      return `<div class="fan-item" data-fan-index="${i}" style="--closed:${closed}; --open:${open}; z-index:${10 + i};"><img src="${im.file}" alt="${im.label}" loading="lazy"><span class="fan-label">${im.label}</span></div>`;
+    }).join('');
+    el.innerHTML = `
+      <div class="work-top">
+        <div class="work-icon image">${stackIcon}</div>
+        <span class="work-type">${n} images</span>
+      </div>
+      <div class="fan-stack">
+        ${fanItemsHtml}
+      </div>
+      <h4>${w.title}</h4>
+      <p>${w.desc}</p>
+      <span class="work-tag">${w.tag}</span>
+      <button type="button" class="work-action fan-toggle"><span class="fan-toggle-label">Open the fan</span> ${icons.chevron}</button>`;
+    const toggleBtn = el.querySelector('.fan-toggle');
+    const toggleLabel = el.querySelector('.fan-toggle-label');
+    toggleBtn.addEventListener('click', () => {
+      const open = el.classList.toggle('open');
+      toggleLabel.textContent = open ? 'Close the fan' : 'Open the fan';
+    });
+    el.querySelectorAll('.fan-item').forEach((item, i) => {
+      item.addEventListener('click', (e) => {
+        if (!el.classList.contains('open')) return;
+        e.stopPropagation();
+        openLightbox(w.images[i].file, w.images[i].label);
+      });
+    });
+    return el;
+  }
+
   const isImage = w.type === 'image';
   const actionLabel = w.type === 'pdf' ? 'Download PDF' : w.type === 'video' ? 'Watch video' : 'View image';
   const href = `${w.file}`;
@@ -203,20 +243,15 @@ const workItems = [
   {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Campaign Overview', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation.', tag:'Strategy & execution write-up', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'pdf', file:'county-broadband-christmas-content-calendar.pdf', title:'Content Calendar & Planning', desc:'The full 2023 multi-channel content calendar (TikTok to van livery), plus the research and coordination behind it.', tag:'Planning document', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'county-broadband-email-price.png', title:'Email — Price Offer', desc:'900 Mbps for £49.99 — Mailchimp campaign from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'county-broadband-email-speed.png', title:'Email — Speed', desc:'Speed-focused Mailchimp design from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'county-broadband-email-reliability.png', title:'Email — Reliability', desc:'Reliability-focused Mailchimp design, featuring the My CB Wi-Fi app.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'county-broadband-email-game.png', title:'Email — Samurai Santa Game', desc:'Launch email for the branded festive game.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-ig-fb-price.jpg', title:'Instagram/Facebook — Price', desc:'"Sleigh the Copper Grinch" — price-led post for the 2023 series.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-ig-fb-reliability.jpg', title:'Instagram/Facebook — Reliability', desc:'Reliability-focused post, part of the three-way value proposition split.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-ig-fb-speed.jpg', title:'Instagram/Facebook — Speed', desc:'Speed-focused post from the same series.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-ig-fb-game.jpg', title:'Instagram/Facebook — Festive Game', desc:'Launch post for the branded festive game.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-linkedin-reliability.jpg', title:'LinkedIn — Santa\'s Co-Pilot', desc:'Reliability post pivoted for a professional LinkedIn audience.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-linkedin-price.jpg', title:'LinkedIn — Hypercharge Your Network', desc:'Price-led post for LinkedIn.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-linkedin-community.jpg', title:'LinkedIn — Community & Giving', desc:'Charity and community-focused LinkedIn post.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-linkedin-game.jpg', title:'LinkedIn — Festive Game', desc:'"Is the office quiet?" — festive game post for LinkedIn.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-price-freeze.jpg', title:'Social — Price Freeze', desc:'Standalone social creative on the price-freeze message.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'cb-social-game-cards.jpg', title:'Samurai Santa — Game Card Designs', desc:'The full deck of in-game card designs for the "Samurai Santa" browser game.', tag:'Game asset design', company:'County Broadband', campaign:'Christmas Campaign'}
+  {type:'pdf', file:'county-broadband-christmas-social-activities.pdf', title:'Social Media Activities Deck', desc:'The full 2023 social post-by-post breakdown for Instagram, Facebook and LinkedIn — creative, copy and captions for each.', tag:'Social content deck', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'pdf', file:'county-broadband-christmas-ideas-research.pdf', title:'Christmas Ideas & Research', desc:'Local Christmas events research and campaign concept brainstorm that fed into the 2023 plan.', tag:'Research & ideation', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'fan', title:'Email Designs — 2023', desc:'Five Mailchimp campaigns from the "Full Fibre Christmas" series — price, speed, reliability and the festive game.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign',
+   images:[
+     {file:'county-broadband-email-price.png', label:'Price offer'},
+     {file:'county-broadband-email-speed.png', label:'Speed'},
+     {file:'county-broadband-email-reliability.png', label:'Reliability'},
+     {file:'county-broadband-email-game.png', label:'Samurai Santa game'}
+   ]}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');

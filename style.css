@@ -234,9 +234,41 @@
   .work-icon.image{ background:rgba(18,169,138,0.16); color:var(--teal); }
   .work-campaign-title{ grid-column:1 / -1; font-family:var(--font-display); font-size:18px; color:var(--paper); margin:6px 0 -4px; padding-top:8px; border-top:1.5px dashed rgba(241,246,243,0.25); }
   .work-campaign-title:first-child{ border-top:none; padding-top:0; margin-top:0; }
-  .work-thumb{ display:block; border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+  .work-thumb{ display:block; border-radius:8px; overflow:hidden; border:1px solid var(--line); cursor:zoom-in; }
   .work-thumb img{ display:block; width:100%; height:110px; object-fit:cover; object-position:top; transition:transform .3s ease; }
   .work-thumb:hover img{ transform:scale(1.04); }
+
+  /* Fan card (email designs) */
+  .work-fan-card{ transition:grid-column .1s, transform .25s ease; }
+  .work-fan-card.open{ grid-column:1 / -1; }
+  .fan-stack{ position:relative; height:150px; margin:6px 0 34px; }
+  .work-fan-card.open .fan-stack{ height:210px; margin-bottom:26px; }
+  .fan-item{ position:absolute; top:0; left:50%; width:92px; height:140px; border-radius:8px; overflow:hidden;
+    box-shadow:0 10px 20px -8px rgba(0,0,0,0.45); border:2px solid var(--card); cursor:default;
+    transform:var(--closed); transition:transform .55s cubic-bezier(.22,.85,.3,1); }
+  .work-fan-card.open .fan-item{ transform:var(--open); cursor:pointer; }
+  .fan-item img{ display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+  .fan-label{ position:absolute; bottom:0; left:0; right:0; font-size:9px; text-align:center; color:#fff;
+    background:rgba(10,58,63,0.82); padding:3px 2px; opacity:0; transition:opacity .3s ease; }
+  .work-fan-card.open .fan-item:hover .fan-label{ opacity:1; }
+  .work-fan-card.open .fan-item:hover{ transform:var(--open) translateY(-8px); z-index:50 !important; }
+  button.fan-toggle{ background:none; border:none; font-family:inherit; cursor:pointer; padding:0; text-align:left;
+    display:inline-flex; align-items:center; gap:6px; }
+  .fan-toggle svg{ width:14px; height:14px; transition:transform .3s ease; }
+  .work-fan-card.open .fan-toggle svg{ transform:rotate(180deg); }
+  button.work-action{ background:none; border:none; font-family:inherit; cursor:pointer; padding:0; text-align:left; }
+
+  /* Lightbox */
+  .lightbox{ display:none; position:fixed; inset:0; background:rgba(6,20,20,0.94); z-index:999; align-items:center; justify-content:center; padding:48px; }
+  .lightbox.open{ display:flex; }
+  .lightbox-stage{ max-width:92vw; max-height:82vh; overflow:auto; display:flex; align-items:center; justify-content:center; }
+  .lightbox-img{ max-width:92vw; max-height:82vh; object-fit:contain; cursor:zoom-in; transition:transform .3s ease; border-radius:6px; }
+  .lightbox-img.zoomed{ max-width:none; max-height:none; width:auto; height:auto; transform:scale(2.4); cursor:zoom-out; }
+  .lightbox-close{ position:absolute; top:22px; right:22px; width:42px; height:42px; border-radius:50%; border:1.5px solid rgba(241,246,243,0.35); background:rgba(241,246,243,0.08); color:var(--paper); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .lightbox-close:hover{ background:rgba(241,246,243,0.18); }
+  .lightbox-close svg{ width:20px; height:20px; }
+  .lightbox-hint{ position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:11px; color:rgba(241,246,243,0.55); text-transform:uppercase; letter-spacing:.06em; }
+  @media (max-width:700px){ .lightbox-hint{ display:none; } }
   .work-type{ font-family:var(--font-mono); font-size:9.5px; text-transform:uppercase; letter-spacing:.07em; padding:4px 9px; border-radius:999px; border:1px solid var(--line); color:var(--ink-soft); }
   .work-card h4{ font-size:15.5px; }
   .work-card p{ font-size:12.8px; color:var(--ink-soft); flex-grow:1; }
