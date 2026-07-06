@@ -222,24 +222,12 @@ caseStudies.forEach((c, i) => {
 
 /* ---------------- Case Studies by Sector ---------------- */
 const interviewCaseStudies = [
-  { sector:'FMCG', title:'La Tua Pasta', sub:'Food marketing campaign & brand strategy',
-    brief:'Plan a food marketing campaign for an artisan Italian pasta brand, from brand messaging through to budget.',
-    approach:'Built on a full SWOT analysis and audience segmentation (B2C lifestyle audience and B2B trade/hospitality), then developed two distinct campaign concepts to reach each side of that audience.',
-    execution:'"Traditions Matter" — a black-and-white campaign using an original personal photograph to evoke authenticity and Italian tradition, aimed at B2C. "You & Us Originally Tasty" — a vibrant product-led campaign highlighting freshness and the colours of the Italian flag, aimed at B2B trade press and hospitality buyers.',
-    skills:['SWOT analysis','Audience segmentation','Campaign concept development','Original photography','RACE framework','Budget planning'],
-    pdfs:[{label:'Campaign Deck', file:'la-tua-pasta-campaign.pdf'},{label:'Coordinator Task', file:'la-tua-pasta-coordinator.pdf'}] },
-  { sector:'Estates', title:'Search Smartly', sub:'Property marketing & social media strategy',
-    brief:'Develop a social media and marketing strategy for a London property search agency, from brand messaging and a SWOT analysis through to concrete social content and a wider PR/media relations plan.',
-    approach:'Started by defining the brand messages and target audience (a broad 21–60 demographic, middle/high income), then ran a full SWOT analysis to identify where the brand could grow — community connections and events as opportunities, established portals like Zoopla and Rightmove as the main competitive threat. From there, set objectives (market expansion, brand awareness, customer loyalty) and translated them into a communications strategy built on branding, emotional storytelling, digital support and PR.',
-    execution:'Drafted ready-to-publish Instagram posts spotlighting London neighbourhoods (Alexandra Palace, Muswell Hill) with on-brand copy and hashtag sets, plus a "Hello Summer" giveaway activity to drive engagement and followers. Mapped out a media relations plan identifying real micro- and nano-influencers, bloggers and property press for outreach, and proposed a Pride Month ad campaign concept ("Home Is Where The Heart Is") aligned with brand values.',
-    skills:['SWOT analysis','Brand messaging','Social media content creation','Hashtag strategy','Influencer & PR mapping','Campaign concepting'],
-    pdfs:[{label:'Marketing Strategy', file:'search-smartly-marketing-strategy.pdf'},{label:'Instagram Content', file:'search-smartly-instagram-content.pdf'}] },
   { sector:'Advertising', title:'Service Graphics', sub:'Retail visual communication — social media campaign',
     brief:'Design a new style of social media content for Service Graphics to showcase its retail visual communication work (window displays, interactive signage, storefront design) and drive brand awareness among marketing professionals and visual merchandisers, on brand guidelines (colour palette, typography, tone of voice).',
     approach:'Set a clear objective, audience and key message before touching design: the goal was to demonstrate expertise and creativity in visual communication solutions, aimed at marketing professionals and businesses looking for high-impact retail displays. Chose LinkedIn and Instagram as the platforms and carousel/reel as the formats, since they suit before/after and process-style storytelling best.',
     execution:'Wrote and designed a LinkedIn carousel and a set of nine sequenced Instagram grid posts introducing the brand\'s services, each with on-brand copy and hashtags. Developed a concept reel built around an eye motif — visual perception meeting the company logo in the iris — to link the idea of "bringing any visual concept to life" directly to brand identity. Followed up with a real client showcase post for the Gymshark66 project, adapting tone for LinkedIn (professional, results-driven) versus Instagram (punchier, emoji-led) versions of the same story.',
     skills:['Social media content strategy','Copywriting & hashtag strategy','Concept development','Brand-guideline adherence','Cross-platform tone adaptation','Client project storytelling'],
-    pdfs:[{label:'Campaign Deck', file:'progetto-service-graphics.pdf'}] },
+    pdfs:[{label:'Campaign Deck', file:'progetto-service-graphics.pdf'},{label:'Watch Reel', file:'service-graphics-reel.mp4', type:'video'}] },
   { sector:'E-commerce & Fashion', title:'Zara', sub:'PR and marketing campaign — fast fashion',
     brief:'Build a full PR and marketing campaign for Zara, covering campaign messaging, target audience, a SWOT analysis, and a channel plan spanning outdoor advertising, digital advertising, media relations and social media.',
     approach:'Started from Zara\'s existing brand positioning — fast fashion at an affordable price, elegance and simplicity, accessibility across a wide audience — and layered a SWOT analysis on top to identify where a campaign could add most value: global reach and a fast-changing collection as strengths to lean into, an image closely tied to competitors as a weakness to work around. Defined clear aims (drive traffic, build brand awareness, win the choice over competitor brands) before selecting channels.',
@@ -251,7 +239,19 @@ const interviewCaseStudies = [
     approach:'Anchored the plan in Wild\'s own positioning — a sustainable, plastic-free deodorant brand where every sale funds tree planting — and built buyer personas for the Italian market from that starting point before sourcing a single influencer. Set clear campaign objectives (brand awareness, lead generation, product sales) and matched criteria (niche, engagement, brand fit) to guide research through tools such as Social Blade and HypeAuditor.',
     execution:'Compiled a researched shortlist of real Italian sustainability-focused nano-, micro- and mid-tier influencers with follower counts and a fit rating for each, then modelled a full budget split across influencer fees, shipping, licensing/copyright, paid boosting and contingency. Drafted tiered outreach templates (first contact, short pitch, follow-ups) in Italian, plus content deliverables — a bilingual campaign hashtag, personalised discount codes per influencer, and example on-brand caption copy — and set out a data plan (UTM tracking, performance review, iteration) to close the loop.',
     skills:['Influencer research & vetting','Budget modelling','Outreach copywriting (Italian)','Buyer persona development','Campaign measurement planning','Cross-border market adaptation'],
-    pdfs:[{label:'Influencer Marketing Case Study', file:'progetto-wild-cosmetics.pdf'}] }
+    pdfs:[{label:'Influencer Marketing Case Study', file:'progetto-wild-cosmetics.pdf'}] },
+  { sector:'Estates', title:'Search Smartly', sub:'Property marketing & social media strategy',
+    brief:'Develop a social media and marketing strategy for a London property search agency, from brand messaging and a SWOT analysis through to concrete social content and a wider PR/media relations plan.',
+    approach:'Started by defining the brand messages and target audience (a broad 21–60 demographic, middle/high income), then ran a full SWOT analysis to identify where the brand could grow — community connections and events as opportunities, established portals like Zoopla and Rightmove as the main competitive threat. From there, set objectives (market expansion, brand awareness, customer loyalty) and translated them into a communications strategy built on branding, emotional storytelling, digital support and PR.',
+    execution:'Drafted ready-to-publish Instagram posts spotlighting London neighbourhoods (Alexandra Palace, Muswell Hill) with on-brand copy and hashtag sets, plus a "Hello Summer" giveaway activity to drive engagement and followers. Mapped out a media relations plan identifying real micro- and nano-influencers, bloggers and property press for outreach, and proposed a Pride Month ad campaign concept ("Home Is Where The Heart Is") aligned with brand values.',
+    skills:['SWOT analysis','Brand messaging','Social media content creation','Hashtag strategy','Influencer & PR mapping','Campaign concepting'],
+    pdfs:[{label:'Marketing Strategy', file:'search-smartly-marketing-strategy.pdf'},{label:'Instagram Content', file:'search-smartly-instagram-content.pdf'}] },
+  { sector:'FMCG', title:'La Tua Pasta', sub:'Food marketing campaign & brand strategy',
+    brief:'Plan a food marketing campaign for an artisan Italian pasta brand, from brand messaging through to budget.',
+    approach:'Built on a full SWOT analysis and audience segmentation (B2C lifestyle audience and B2B trade/hospitality), then developed two distinct campaign concepts to reach each side of that audience.',
+    execution:'"Traditions Matter" — a black-and-white campaign using an original personal photograph to evoke authenticity and Italian tradition, aimed at B2C. "You & Us Originally Tasty" — a vibrant product-led campaign highlighting freshness and the colours of the Italian flag, aimed at B2B trade press and hospitality buyers.',
+    skills:['SWOT analysis','Audience segmentation','Campaign concept development','Original photography','RACE framework','Budget planning'],
+    pdfs:[{label:'Campaign Deck', file:'la-tua-pasta-campaign.pdf'},{label:'Coordinator Task', file:'la-tua-pasta-coordinator.pdf'}] }
 ];
 
 const sectors = ['All','Advertising','E-commerce & Fashion','Estates','FMCG'];
@@ -277,7 +277,7 @@ function renderInterviewCard(c, i){
       </div>
       <div class="cs-block" style="margin-bottom:6px"><div class="cs-block-label">Skills demonstrated</div><div class="cs-tools">${c.skills.map(s=>`<span class="cs-tool">${s}</span>`).join('')}</div></div>
       <div class="cs-actions" style="margin-top:18px">
-        ${c.pdfs.map(p=>`<a href="${p.file}" target="_blank" class="btn btn-outline btn-sm">${icons.pdf} ${p.label}</a>`).join('')}
+        ${c.pdfs.map(p=>`<a href="${p.file}" target="_blank" class="btn btn-outline btn-sm">${p.type==='video'?icons.video:icons.pdf} ${p.label}</a>`).join('')}
       </div>
     </div></div>`;
   card.querySelector('.cs-head').addEventListener('click', () => card.classList.toggle('open'));
