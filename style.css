@@ -246,12 +246,12 @@
   /* Fan card (email designs) */
   .work-fan-card{ transition:grid-column .1s, transform .25s ease; }
   .work-fan-card.open{ grid-column:1 / -1; }
-  .fan-stack{ position:relative; height:230px; margin:6px 0 54px; }
+  .fan-stack{ position:relative; height:72px; margin:4px 0 14px; }
   .work-fan-card.open .fan-stack{ height:340px; margin-bottom:40px; }
-  .fan-item{ position:absolute; top:0; left:50%; width:150px; height:225px; border-radius:10px; overflow:hidden;
-    box-shadow:0 14px 26px -10px rgba(0,0,0,0.5); border:2px solid var(--card); cursor:default;
-    transform:var(--closed); transition:transform .55s cubic-bezier(.22,.85,.3,1); }
-  .work-fan-card.open .fan-item{ transform:var(--open); cursor:pointer; }
+  .fan-item{ position:absolute; top:0; left:50%; width:46px; height:70px; border-radius:5px; overflow:hidden;
+    box-shadow:0 6px 12px -6px rgba(0,0,0,0.45); border:1.5px solid var(--card); cursor:default;
+    transform:var(--closed); transition:transform .55s cubic-bezier(.22,.85,.3,1), width .3s ease, height .3s ease; }
+  .work-fan-card.open .fan-item{ transform:var(--open); cursor:pointer; width:150px; height:225px; }
   .fan-item img{ display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
   .fan-label{ position:absolute; bottom:0; left:0; right:0; font-size:11px; text-align:center; color:#fff;
     background:rgba(10,58,63,0.85); padding:5px 4px; opacity:0; transition:opacity .3s ease; }

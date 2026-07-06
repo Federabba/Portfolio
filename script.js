@@ -60,7 +60,7 @@ const roles = [
   { date:'Oct 2022 — Dec 2023', role:'Digital Marketing Executive', co:'County Broadband', logo:'county-broadband.png', badge:'CB',
     points:['Omnichannel campaigns and lead generation','Email marketing and analytics reporting']},
   { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'service-graphics-blue.png', badge:'SG',
-    points:['Digital strategy and content, involved with social media management','Design for marketing materials and campaigns']},
+    points:['Digital strategy, content and social media management','Design for marketing materials and campaigns']},
   { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'service-graphics-white.png', badge:'SG',
     points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light HTML/CSS, graphic work for brochures']}
 ];
@@ -333,60 +333,6 @@ const jobProjects = [
 ];
 const jobProjGrid = document.getElementById('jobProjGrid');
 jobProjects.forEach(w => jobProjGrid.appendChild(workCard(w)));
-
-/* ---------------- Case studies ---------------- */
-const caseStudies = [
-  { title:'Gymshark Collaboration & UEFA Euro 2024', sub:'Service Graphics — brand partnership',
-    objective:'Produce visual content and communication materials for two high-profile partnerships: Gymshark and UEFA Euro 2024.',
-    role:'Creative Media & Digital Marketing Executive — ideation and production of reels, social content and POS materials.',
-    strategy:'Content built for both social and point-of-sale, aligned with the identity of each partner brand.',
-    execution:'Reels and visuals for the Gymshark collaboration, visual communication materials for the UEFA Euro 2024 partnership, dedicated POS campaign.',
-    tools:['Adobe Creative Suite','Social media','Video editing'],
-    results:[{num:'🏆', lbl:'Gold Award — UK Graphic Awards 2024'},{num:'2', lbl:'High-profile partnerships'},{num:'—', lbl:'Add your own real data here'}] },
-  { title:'Seasonal Campaigns', sub:'County Broadband — digital marketing',
-    objective:'Plan and execute a series of seasonal campaigns to generate leads and increase brand awareness.',
-    role:'Digital Marketing Executive — research, ideation, social management, email marketing and post-campaign analysis.',
-    strategy:'A different approach for each occasion: social content for Valentine\'s Day, a multi-channel mix for Rugby, gaming elements for Black Friday.',
-    execution:'Valentine\'s campaign (social content), Rugby campaign (social, email, MetaAds), Black Friday campaign (social engagement and gaming), Christmas campaign (social and email marketing).',
-    tools:['Meta Ads Manager','Email marketing','Social media','Analytics'],
-    results:[{num:'4', lbl:'Seasonal campaigns delivered'},{num:'—', lbl:'Add your own real KPIs here'},{num:'—', lbl:'Add your own real data here'}] },
-  { title:'Spiran Magazine', sub:'Spiran Ltd. — content marketing',
-    objective:'Create a proprietary editorial channel to strengthen brand awareness and generate new leads in the retail/FMCG sector.',
-    role:'Founder & Editor — ideation, production and management of the magazine, plus the company website and recipe blog.',
-    strategy:'A quarterly magazine combining product storytelling with editorial content, to retain existing customers and attract new ones.',
-    execution:'Three issues published (Vol. 1–3), management of the company website and a recipe blog supporting the brand.',
-    tools:['Content design','Website management','Digital publishing'],
-    results:[{num:'3', lbl:'Issues published'},{num:'—', lbl:'Add your own real KPIs here'},{num:'—', lbl:'Add your own real data here'}] }
-];
-const csGrid = document.getElementById('csGrid');
-caseStudies.forEach((c, i) => {
-  const card = document.createElement('div');
-  card.className = 'cs-card';
-  card.innerHTML = `
-    <div class="cs-head">
-      <div class="cs-head-left">
-        <div class="cs-index">0${i+1}</div>
-        <div><div class="cs-title">${c.title}</div><div class="cs-sub">${c.sub}</div></div>
-      </div>
-      <svg class="cs-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="cs-body"><div class="cs-body-inner">
-      <div class="cs-cols">
-        <div class="cs-block"><div class="cs-block-label">Objective</div><p>${c.objective}</p></div>
-        <div class="cs-block"><div class="cs-block-label">My role</div><p>${c.role}</p></div>
-        <div class="cs-block"><div class="cs-block-label">Strategy</div><p>${c.strategy}</p></div>
-      </div>
-      <div class="cs-block" style="margin-bottom:18px"><div class="cs-block-label">Creative execution</div><p>${c.execution}</p></div>
-      <div class="cs-block" style="margin-bottom:6px"><div class="cs-block-label">Tools used</div><div class="cs-tools">${c.tools.map(t=>`<span class="cs-tool">${t}</span>`).join('')}</div></div>
-      <div class="cs-results">${c.results.map(r=>`<div class="cs-result"><div class="num">${r.num}</div><div class="lbl">${r.lbl}</div></div>`).join('')}</div>
-      <div class="cs-actions">
-        <a href="case-study-${i+1}.pdf" target="_blank" class="btn btn-outline btn-sm">${icons.pdf} Download PDF</a>
-        <a href="case-study-${i+1}.mp4" target="_blank" class="btn btn-outline btn-sm">${icons.video} Watch video</a>
-      </div>
-    </div></div>`;
-  card.querySelector('.cs-head').addEventListener('click', () => card.classList.toggle('open'));
-  csGrid.appendChild(card);
-});
 
 /* ---------------- Case Studies by Sector ---------------- */
 const interviewCaseStudies = [
