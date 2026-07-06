@@ -44,21 +44,21 @@ skills.forEach(s => {
 
 /* ---------------- Esperienze: central alternating timeline ---------------- */
 const roles = [
-  { date:'May 2021 — Jul 2021', role:'Social Media and Marketing Intern', co:'KBM #FitnessMyFinance', logo:'', badge:'KBM',
+  { date:'May 2021 — Jul 2021', role:'Social Media and Marketing Intern', co:'KBM', logo:'kbm.png', badge:'KBM',
     points:['Social media content, managed via Buffer','Campaigns and data analysis, team collaboration via Trello']},
-  { date:'Jul 2021 — Sep 2021', role:'Digital Marketing Intern', co:'The Artisan Food Company', logo:'', badge:'A',
+  { date:'Jul 2021 — Sep 2021', role:'Digital Marketing Intern', co:'The Artisan Food Company', logo:'artisan-food-company.png', badge:'A',
     points:['Connected with influencers and bloggers','Client relationships and social promotion, incl. GiftBox initiatives']},
-  { date:'Aug 2021 — Oct 2021', role:'Marketing Assistant', co:'La di da Sweet Treats', logo:'', badge:'LD',
+  { date:'Aug 2021 — Oct 2021', role:'Marketing Assistant', co:'La di da Sweet Treats', logo:'la-di-da.png', badge:'LD',
     points:['Order & shipping management, social media content','Campaign creation and basic SEO']},
-  { date:'Oct 2021 — Oct 2022', role:'Marketing Executive', co:'MPM Drive', logo:'', badge:'MPM',
+  { date:'Oct 2021 — Oct 2022', role:'Marketing Executive', co:'MPM Drive', logo:'mpm-drive.png', badge:'MPM',
     points:['Marketing strategy, website & social media management','Content for UK editorial media, events and market research']},
-  { date:'Feb 2022 — Jan 2023', role:'Senior Marketing Executive (Freelance)', co:'Spiran Ltd.', logo:'', badge:'SP',
+  { date:'Feb 2022 — Jan 2023', role:'Senior Marketing Executive (Freelance)', co:'Spiran Ltd.', logo:'spiran.png', badge:'SP',
     points:['Social media management, Mailchimp newsletters','Founded and edited the Spiran Magazine']},
-  { date:'Oct 2022 — Dec 2023', role:'Digital Marketing Executive', co:'County Broadband', logo:'', badge:'CB',
+  { date:'Oct 2022 — Dec 2023', role:'Digital Marketing Executive', co:'County Broadband', logo:'county-broadband.png', badge:'CB',
     points:['Omnichannel campaigns and lead generation','Email marketing and analytics reporting']},
-  { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'', badge:'SG',
+  { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'service-graphics.png', badge:'SG',
     points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
-  { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'', badge:'SG',
+  { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'service-graphics.png', badge:'SG',
     points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light HTML/CSS, graphic work for brochures']}
 ];
 const expTrack = document.getElementById('expTrack');
