@@ -26,7 +26,8 @@ const icons = {
   award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>',
   bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>',
   compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M16 8l-2.5 6.5L7 17l2.5-6.5L16 8z"/></svg>',
-  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
+  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'
 };
 
 document.getElementById('icEdu').innerHTML = icons.grad;
@@ -105,14 +106,64 @@ document.querySelectorAll('.ptab').forEach(tab => {
   });
 });
 
-/* helper to build a work-card element; href points to local assets folders —
-   see the note at the end of the chat for how to plug in real files */
+/* ---------------- Lightbox (zoomable image viewer) ---------------- */
+function ensureLightbox(){
+  if (document.getElementById('lightbox')) return;
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.className = 'lightbox';
+  lb.innerHTML = `
+    <button type="button" class="lightbox-close" aria-label="Close">${icons.close}</button>
+    <div class="lightbox-stage">
+      <img class="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-hint">Click image to zoom</div>`;
+  document.body.appendChild(lb);
+  const img = lb.querySelector('.lightbox-img');
+  const stage = lb.querySelector('.lightbox-stage');
+  lb.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', (e) => { if (e.target === lb || e.target === stage) closeLightbox(); });
+  img.addEventListener('click', (e) => {
+    if (img.classList.contains('zoomed')){
+      img.classList.remove('zoomed');
+    } else {
+      const rect = img.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.classList.add('zoomed');
+    }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+}
+function openLightbox(src, alt){
+  ensureLightbox();
+  const lb = document.getElementById('lightbox');
+  const img = lb.querySelector('.lightbox-img');
+  img.src = src;
+  img.alt = alt || '';
+  img.classList.remove('zoomed');
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  const lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+
 function workCard(w){
   const el = document.createElement('div');
   el.className = 'work-card';
+  const isImage = w.type === 'image';
   const actionLabel = w.type === 'pdf' ? 'Download PDF' : w.type === 'video' ? 'Watch video' : 'View image';
   const href = `${w.file}`;
-  const thumb = w.type === 'image' ? `<a href="${href}" target="_blank" class="work-thumb"><img src="${w.file}" alt="${w.title}" loading="lazy"></a>` : '';
+  const thumb = isImage ? `<div class="work-thumb" data-lightbox-trigger><img src="${w.file}" alt="${w.title}" loading="lazy"></div>` : '';
+  const action = isImage
+    ? `<button type="button" class="work-action" data-lightbox-trigger>${actionLabel} ${icons.arrow}</button>`
+    : `<a href="${href}" target="_blank" class="work-action">${actionLabel} ${icons.arrow}</a>`;
   el.innerHTML = `
     <div class="work-top">
       <div class="work-icon ${w.type}">${icons[w.type]}</div>
@@ -122,7 +173,10 @@ function workCard(w){
     <h4>${w.title}</h4>
     <p>${w.desc}</p>
     <span class="work-tag">${w.tag}</span>
-    <a href="${href}" target="_blank" class="work-action">${actionLabel} ${icons.arrow}</a>`;
+    ${action}`;
+  if (isImage){
+    el.querySelectorAll('[data-lightbox-trigger]').forEach(t => t.addEventListener('click', () => openLightbox(w.file, w.title)));
+  }
   return el;
 }
 
@@ -148,10 +202,21 @@ const workItems = [
   {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Campaign Overview', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation.', tag:'Strategy & execution write-up', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'pdf', file:'county-broadband-christmas-content-calendar.pdf', title:'Content Calendar & Planning', desc:'The full 2023 multi-channel content calendar (TikTok to van livery), plus the research and coordination behind it.', tag:'Planning document', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'image', file:'county-broadband-email-price.png', title:'Email — Price Offer', desc:'900 Mbps for £49.99 — Mailchimp campaign from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'image', file:'county-broadband-email-speed.png', title:'Email — Speed', desc:'Speed-focused Mailchimp design from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'image', file:'county-broadband-email-reliability.png', title:'Email — Reliability', desc:'Reliability-focused Mailchimp design, featuring the My CB Wi-Fi app.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
-  {type:'image', file:'county-broadband-email-game.png', title:'Email — Samurai Santa Game', desc:'Launch email for the branded festive game.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'}
+  {type:'image', file:'county-broadband-email-game.png', title:'Email — Samurai Santa Game', desc:'Launch email for the branded festive game.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-ig-fb-price.jpg', title:'Instagram/Facebook — Price', desc:'"Sleigh the Copper Grinch" — price-led post for the 2023 series.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-ig-fb-reliability.jpg', title:'Instagram/Facebook — Reliability', desc:'Reliability-focused post, part of the three-way value proposition split.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-ig-fb-speed.jpg', title:'Instagram/Facebook — Speed', desc:'Speed-focused post from the same series.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-ig-fb-game.jpg', title:'Instagram/Facebook — Festive Game', desc:'Launch post for the branded festive game.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-linkedin-reliability.jpg', title:'LinkedIn — Santa\'s Co-Pilot', desc:'Reliability post pivoted for a professional LinkedIn audience.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-linkedin-price.jpg', title:'LinkedIn — Hypercharge Your Network', desc:'Price-led post for LinkedIn.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-linkedin-community.jpg', title:'LinkedIn — Community & Giving', desc:'Charity and community-focused LinkedIn post.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-linkedin-game.jpg', title:'LinkedIn — Festive Game', desc:'"Is the office quiet?" — festive game post for LinkedIn.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-price-freeze.jpg', title:'Social — Price Freeze', desc:'Standalone social creative on the price-freeze message.', tag:'Social post design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'cb-social-game-cards.jpg', title:'Samurai Santa — Game Card Designs', desc:'The full deck of in-game card designs for the "Samurai Santa" browser game.', tag:'Game asset design', company:'County Broadband', campaign:'Christmas Campaign'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
