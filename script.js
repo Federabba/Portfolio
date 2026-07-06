@@ -20,11 +20,13 @@ const icons = {
   ai: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M8 15c1.2 1 2.6 1.5 4 1.5s2.8-.5 4-1.5"/></svg>',
   pdf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
   video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3"/></svg>',
+  image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
   arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   grad: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>',
   award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>',
   bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>',
-  compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M16 8l-2.5 6.5L7 17l2.5-6.5L16 8z"/></svg>'
+  compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M16 8l-2.5 6.5L7 17l2.5-6.5L16 8z"/></svg>',
+  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'
 };
 
 document.getElementById('icEdu').innerHTML = icons.grad;
@@ -108,13 +110,15 @@ document.querySelectorAll('.ptab').forEach(tab => {
 function workCard(w){
   const el = document.createElement('div');
   el.className = 'work-card';
-  const actionLabel = w.type === 'pdf' ? 'Download PDF' : 'Watch video';
-  const href = w.type === 'pdf' ? `${w.file}` : `${w.file}`;
+  const actionLabel = w.type === 'pdf' ? 'Download PDF' : w.type === 'video' ? 'Watch video' : 'View image';
+  const href = `${w.file}`;
+  const thumb = w.type === 'image' ? `<a href="${href}" target="_blank" class="work-thumb"><img src="${w.file}" alt="${w.title}" loading="lazy"></a>` : '';
   el.innerHTML = `
     <div class="work-top">
       <div class="work-icon ${w.type}">${icons[w.type]}</div>
       <span class="work-type">${w.type}</span>
     </div>
+    ${thumb}
     <h4>${w.title}</h4>
     <p>${w.desc}</p>
     <span class="work-tag">${w.tag}</span>
@@ -143,7 +147,11 @@ const workItems = [
   {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'Launch issue: saffron quality guide, spices & wellness, restaurant review and a traditional Spanish recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
   {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
-  {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Christmas Campaign', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation, with a look at the 2023 email designs.', tag:'Seasonal campaign case study', company:'County Broadband'}
+  {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Campaign Overview', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation.', tag:'Strategy & execution write-up', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'county-broadband-email-price.png', title:'Email — Price Offer', desc:'900 Mbps for £49.99 — Mailchimp campaign from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'county-broadband-email-speed.png', title:'Email — Speed', desc:'Speed-focused Mailchimp design from the 2023 series.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'county-broadband-email-reliability.png', title:'Email — Reliability', desc:'Reliability-focused Mailchimp design, featuring the My CB Wi-Fi app.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'},
+  {type:'image', file:'county-broadband-email-game.png', title:'Email — Samurai Santa Game', desc:'Launch email for the branded festive game.', tag:'Email design', company:'County Broadband', campaign:'Christmas Campaign'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
@@ -155,10 +163,21 @@ let activeCompany = 'All';
 let activeType = 'all';
 function renderWork(){
   workGrid.innerHTML = '';
+  let lastCampaignKey = null;
   workItems
     .filter(w => activeType==='all' || w.type===activeType)
     .filter(w => activeCompany==='All' || w.company===activeCompany)
-    .forEach(w => workGrid.appendChild(workCard(w)));
+    .forEach(w => {
+      const campaignKey = w.company + '|' + (w.campaign || '');
+      if (w.campaign && campaignKey !== lastCampaignKey){
+        const heading = document.createElement('div');
+        heading.className = 'work-campaign-title';
+        heading.textContent = w.campaign;
+        workGrid.appendChild(heading);
+      }
+      lastCampaignKey = campaignKey;
+      workGrid.appendChild(workCard(w));
+    });
   if(activeCompany !== 'All' && myWorkCompanies[activeCompany]){
     const info = myWorkCompanies[activeCompany];
     workIntroEl.style.display = 'block';
