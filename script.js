@@ -52,7 +52,7 @@ const roles = [
   { date:'Jul 2021 — Sep 2021', role:'Digital Marketing Intern', co:'The Artisan Food Company', logo:'artisan-food-company.png', badge:'A',
     points:['Connected with influencers and bloggers','Client relationships and social promotion, incl. GiftBox initiatives']},
   { date:'Aug 2021 — Oct 2021', role:'Marketing Assistant', co:'La di da Sweet Treats', logo:'la-di-da.png', badge:'LD',
-    points:['Order & shipping management, social media content','Campaign creation and basic SEO']},
+    points:['Order & shipping management, social media content','Updated the website via Shopify, plus basic SEO']},
   { date:'Oct 2021 — Oct 2022', role:'Marketing Executive', co:'MPM Drive', logo:'mpm-drive.png', badge:'MPM',
     points:['Marketing strategy, website & social media management','Content for UK editorial media, events and market research']},
   { date:'Feb 2022 — Jan 2023', role:'Senior Marketing Executive (Freelance)', co:'Spiran Ltd.', logo:'spiran.png', badge:'SP',
@@ -60,7 +60,7 @@ const roles = [
   { date:'Oct 2022 — Dec 2023', role:'Digital Marketing Executive', co:'County Broadband', logo:'county-broadband.png', badge:'CB',
     points:['Omnichannel campaigns and lead generation','Email marketing and analytics reporting']},
   { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'service-graphics-blue.png', badge:'SG',
-    points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
+    points:['Digital strategy and content, involved with social media management','Design for marketing materials and campaigns']},
   { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'service-graphics-white.png', badge:'SG',
     points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light HTML/CSS, graphic work for brochures']}
 ];
@@ -165,8 +165,8 @@ function workCard(w){
     const center = (n - 1) / 2;
     const fanItemsHtml = w.images.map((im, i) => {
       const offset = i - center;
-      const closed = `translate(calc(-50% + ${offset * 7}px), ${Math.abs(offset) * 3}px) rotate(${offset * 5}deg)`;
-      const open = `translate(calc(-50% + ${offset * 92}px), ${Math.abs(offset) * 16}px) rotate(${offset * 13}deg)`;
+      const closed = `translate(calc(-50% + ${offset * 10}px), ${Math.abs(offset) * 5}px) rotate(${offset * 5}deg)`;
+      const open = `translate(calc(-50% + ${offset * 130}px), ${Math.abs(offset) * 24}px) rotate(${offset * 13}deg)`;
       return `<div class="fan-item" data-fan-index="${i}" style="--closed:${closed}; --open:${open}; z-index:${10 + i};"><img src="${im.file}" alt="${im.label}" loading="lazy"><span class="fan-label">${im.label}</span></div>`;
     }).join('');
     el.innerHTML = `
@@ -264,10 +264,19 @@ let activeType = 'all';
 function renderWork(){
   workGrid.innerHTML = '';
   let lastCampaignKey = null;
+  let lastCompany = null;
   workItems
     .filter(w => activeType==='all' || w.type===activeType)
     .filter(w => activeCompany==='All' || w.company===activeCompany)
     .forEach(w => {
+      if (activeCompany === 'All' && w.company !== lastCompany){
+        const divider = document.createElement('div');
+        divider.className = 'work-company-divider';
+        divider.innerHTML = `<span>${w.company}</span>`;
+        workGrid.appendChild(divider);
+        lastCompany = w.company;
+        lastCampaignKey = null;
+      }
       const campaignKey = w.company + '|' + (w.campaign || '');
       if (w.campaign && campaignKey !== lastCampaignKey){
         const heading = document.createElement('div');
