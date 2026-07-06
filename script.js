@@ -220,6 +220,63 @@ caseStudies.forEach((c, i) => {
   csGrid.appendChild(card);
 });
 
+/* ---------------- Case Studies by Sector ---------------- */
+const interviewCaseStudies = [
+  { sector:'FMCG', title:'La Tua Pasta', sub:'Food marketing campaign & brand strategy',
+    brief:'Plan a food marketing campaign for an artisan Italian pasta brand, from brand messaging through to budget.',
+    approach:'Built on a full SWOT analysis and audience segmentation (B2C lifestyle audience and B2B trade/hospitality), then developed two distinct campaign concepts to reach each side of that audience.',
+    execution:'"Traditions Matter" — a black-and-white campaign using an original personal photograph to evoke authenticity and Italian tradition, aimed at B2C. "You & Us Originally Tasty" — a vibrant product-led campaign highlighting freshness and the colours of the Italian flag, aimed at B2B trade press and hospitality buyers.',
+    skills:['SWOT analysis','Audience segmentation','Campaign concept development','Original photography','RACE framework','Budget planning'],
+    pdfs:[{label:'Campaign Deck', file:'la-tua-pasta-campaign.pdf'},{label:'Coordinator Task', file:'la-tua-pasta-coordinator.pdf'}] }
+];
+
+const sectors = ['All','Advertising','E-commerce & Fashion','Estates','FMCG'];
+const sectorFiltersEl = document.getElementById('sectorFilters');
+const interviewGrid = document.getElementById('interviewGrid');
+
+function renderInterviewCard(c, i){
+  const card = document.createElement('div');
+  card.className = 'cs-card';
+  card.innerHTML = `
+    <div class="cs-head">
+      <div class="cs-head-left">
+        <div class="cs-index">${c.sector}</div>
+        <div><div class="cs-title">${c.title}</div><div class="cs-sub">${c.sub}</div></div>
+      </div>
+      <svg class="cs-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="cs-body"><div class="cs-body-inner">
+      <div class="cs-cols">
+        <div class="cs-block"><div class="cs-block-label">Brief</div><p>${c.brief}</p></div>
+        <div class="cs-block"><div class="cs-block-label">Approach</div><p>${c.approach}</p></div>
+        <div class="cs-block"><div class="cs-block-label">Execution</div><p>${c.execution}</p></div>
+      </div>
+      <div class="cs-block" style="margin-bottom:6px"><div class="cs-block-label">Skills demonstrated</div><div class="cs-tools">${c.skills.map(s=>`<span class="cs-tool">${s}</span>`).join('')}</div></div>
+      <div class="cs-actions" style="margin-top:18px">
+        ${c.pdfs.map(p=>`<a href="${p.file}" target="_blank" class="btn btn-outline btn-sm">${icons.pdf} ${p.label}</a>`).join('')}
+      </div>
+    </div></div>`;
+  card.querySelector('.cs-head').addEventListener('click', () => card.classList.toggle('open'));
+  return card;
+}
+
+function renderInterviewGrid(sector){
+  interviewGrid.innerHTML = '';
+  interviewCaseStudies.filter(c => sector==='All' || c.sector===sector).forEach((c,i) => interviewGrid.appendChild(renderInterviewCard(c,i)));
+}
+sectors.forEach(s => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn' + (s==='All' ? ' active' : '');
+  b.textContent = s;
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#sectorFilters .filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    renderInterviewGrid(s);
+  });
+  sectorFiltersEl.appendChild(b);
+});
+renderInterviewGrid('All');
+
 /* ---------------- Reveal ---------------- */
 const revealTargets = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
