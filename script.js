@@ -56,9 +56,9 @@ const roles = [
     points:['Social media management, Mailchimp newsletters','Founded and edited the Spiran Magazine']},
   { date:'Oct 2022 — Dec 2023', role:'Digital Marketing Executive', co:'County Broadband', logo:'county-broadband.png', badge:'CB',
     points:['Omnichannel campaigns and lead generation','Email marketing and analytics reporting']},
-  { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'service-graphics.png', badge:'SG',
+  { date:'Feb 2024 — Apr 2025', role:'Digital Marketing Executive', co:'Service Graphics', logo:'service-graphics-blue.png', badge:'SG',
     points:['Digital strategy, content and paid advertising','Design for marketing materials and campaigns']},
-  { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'service-graphics.png', badge:'SG',
+  { date:'Apr 2025 — Present', role:'Creative Digital Marketing Specialist', co:'Service Graphics', logo:'service-graphics-white.png', badge:'SG',
     points:['Design-led campaigns, brand storytelling, and creative assets','Website development, light HTML/CSS, graphic work for brochures']}
 ];
 const expTrack = document.getElementById('expTrack');
