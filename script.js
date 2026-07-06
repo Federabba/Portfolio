@@ -122,24 +122,39 @@ function workCard(w){
   return el;
 }
 
-/* ---------------- My Work (PDF / Video archive) ---------------- */
+/* ---------------- My Work (organised by company) ---------------- */
+const myWorkCompanies = {
+  'MPM Drive': {
+    role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
+    blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
+  }
+};
 const workItems = [
-  {type:'video', file:'gymshark-reel.mp4', title:'Reel — Gymshark Collaboration', desc:'Video content for the Gymshark partnership.', tag:'Creative media'},
-  {type:'pdf', file:'euro2024-visual.pdf', title:'Visual — UEFA Euro 2024 Partnership', desc:'Visual communication materials for the event.', tag:'Graphic design'},
-  {type:'pdf', file:'campagna-san-valentino.pdf', title:'Valentine\'s Campaign', desc:'Social content for County Broadband.', tag:'Social media'},
-  {type:'pdf', file:'campagna-rugby.pdf', title:'Rugby Campaign', desc:'Social, email marketing and MetaAds.', tag:'Digital marketing'},
-  {type:'video', file:'campagna-black-friday.mp4', title:'Black Friday Campaign', desc:'Social engagement plan with gaming elements.', tag:'Social media'},
-  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'First issue of the quarterly magazine.', tag:'Content'},
-  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Second issue of the quarterly magazine.', tag:'Content'},
-  {type:'pdf', file:'newsletter-esempio.pdf', title:'Newsletter — Sample', desc:'Email marketing and internal communications.', tag:'Email marketing'},
-  {type:'video', file:'silverstone-360.mp4', title:'Silverstone @360', desc:'Promotional video for MPM Drive.', tag:'Events'}
+  {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
+  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'}
 ];
 const workGrid = document.getElementById('workGrid');
+const workIntroEl = document.getElementById('workIntro');
 const typeFiltersEl = document.getElementById('typeFilters');
+const companyFiltersEl = document.getElementById('companyFilters');
 const workFilters = [{key:'all', label:'All'},{key:'pdf', label:'PDF'},{key:'video', label:'Video'}];
-function renderWork(kind){
+const companyKeys = ['All', ...Object.keys(myWorkCompanies)];
+let activeCompany = 'All';
+let activeType = 'all';
+function renderWork(){
   workGrid.innerHTML = '';
-  workItems.filter(w => kind==='all' || w.type===kind).forEach(w => workGrid.appendChild(workCard(w)));
+  workItems
+    .filter(w => activeType==='all' || w.type===activeType)
+    .filter(w => activeCompany==='All' || w.company===activeCompany)
+    .forEach(w => workGrid.appendChild(workCard(w)));
+  if(activeCompany !== 'All' && myWorkCompanies[activeCompany]){
+    const info = myWorkCompanies[activeCompany];
+    workIntroEl.style.display = 'block';
+    workIntroEl.innerHTML = `<strong>${activeCompany}</strong> — ${info.role}, ${info.period}<p>${info.blurb}</p>`;
+  } else {
+    workIntroEl.style.display = 'none';
+    workIntroEl.innerHTML = '';
+  }
 }
 workFilters.forEach(f => {
   const b = document.createElement('button');
@@ -148,11 +163,24 @@ workFilters.forEach(f => {
   b.addEventListener('click', () => {
     document.querySelectorAll('#typeFilters .filter-btn').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
-    renderWork(f.key);
+    activeType = f.key;
+    renderWork();
   });
   typeFiltersEl.appendChild(b);
 });
-renderWork('all');
+companyKeys.forEach(k => {
+  const b = document.createElement('button');
+  b.className = 'filter-btn' + (k==='All' ? ' active' : '');
+  b.textContent = k;
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#companyFilters .filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    activeCompany = k;
+    renderWork();
+  });
+  companyFiltersEl.appendChild(b);
+});
+renderWork();
 
 /* ---------------- Progetti di Lavoro (inside Portfolio) ---------------- */
 const jobProjects = [
