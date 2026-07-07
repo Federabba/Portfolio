@@ -45,11 +45,23 @@
 
       <div class="hero-photo-wrap">
         <div class="photo-pin">
-          <svg viewBox="0 0 40 44" width="28" height="31">
-            <ellipse cx="20" cy="40" rx="6" ry="2" fill="rgba(18,41,43,0.18)"/>
-            <rect x="18.5" y="22" width="3" height="14" rx="1.5" fill="#8a8f91"/>
-            <circle cx="20" cy="15" r="12" fill="var(--coral)"/>
-            <circle cx="16" cy="11" r="4" fill="rgba(255,255,255,0.4)"/>
+          <svg viewBox="0 0 44 50" width="30" height="34">
+            <defs>
+              <radialGradient id="pinHeadGrad" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#FFB09E"/>
+                <stop offset="55%" stop-color="#FF6F59"/>
+                <stop offset="100%" stop-color="#C94430"/>
+              </radialGradient>
+              <linearGradient id="pinNeedleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d5d7d9"/>
+                <stop offset="50%" stop-color="#9a9fa2"/>
+                <stop offset="100%" stop-color="#6a6e70"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="21" cy="46.5" rx="7" ry="2.2" fill="rgba(18,41,43,0.2)"/>
+            <path d="M20 25 L23 25 L21.8 47.5 L21 49 L20.2 47.5 Z" fill="url(#pinNeedleGrad)"/>
+            <circle cx="21.5" cy="17" r="14" fill="url(#pinHeadGrad)"/>
+            <ellipse cx="16.5" cy="11.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.6)"/>
           </svg>
         </div>
         <div class="polaroid reveal">
