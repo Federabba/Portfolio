@@ -348,9 +348,27 @@ companyKeys.forEach(k => {
 renderWork();
 
 /* ---------------- Progetti di Lavoro (inside Portfolio) ---------------- */
-const jobProjects = [];
+const jobProjects = [
+  {title:'Scalza Books — Tiny Adventures, Mighty Messages', period:'Jan 2024 — Present',
+   desc:'A slow-growing independent project creating bilingual children\'s books that explore everyday adventures filled with heart and purpose — encouraging cultural awareness, empathy and a love for languages.',
+   link:'https://linktr.ee/scalza', linkLabel:'Visit Linktree'},
+  {title:'Tango Etnia', period:'',
+   desc:'Organisation and marketing of Argentine tango events — planning, promotion and on-the-ground management, alongside my main roles.'},
+  {title:'Web Design & Development', period:'',
+   desc:'Designing, building and maintaining websites end to end — including this portfolio.'}
+];
 const jobProjGrid = document.getElementById('jobProjGrid');
-jobProjects.forEach(w => jobProjGrid.appendChild(workCard(w)));
+function projectCard(p){
+  const el = document.createElement('div');
+  el.className = 'work-card work-card-standalone';
+  el.innerHTML = `
+    <h4>${p.title}</h4>
+    ${p.period ? `<div style="font-size:12.5px; color:var(--ink-soft); margin-top:-8px;">${p.period}</div>` : ''}
+    <p>${p.desc}</p>
+    ${p.link ? `<a href="${p.link}" target="_blank" class="work-action">${p.linkLabel} ${icons.arrow}</a>` : ''}`;
+  return el;
+}
+jobProjects.forEach(p => jobProjGrid.appendChild(projectCard(p)));
 
 /* ---------------- Case Studies by Sector ---------------- */
 const interviewCaseStudies = [
