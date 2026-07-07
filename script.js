@@ -222,29 +222,34 @@ function workCard(w){
 
 /* ---------------- My Work (organised by company) ---------------- */
 const myWorkCompanies = {
-  'MPM Drive': {
-    role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
-    blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
-  },
-  'Spiran Ltd.': {
-    role:'Senior Marketing Executive (Freelance)', period:'Feb 2022 — Jan 2023',
-    blurb:'At Spiran Ltd., a single-origin saffron company, I managed the website and built out a new recipe blog, ran social media and Mailchimp email marketing, and worked directly on the sales side too — calling and converting leads to sell the product. My flagship project was founding and editing Spiran Magazine: three quarterly issues blending recipes, food culture and product storytelling, distributed to the community and promoted through email marketing to drive engagement and sales.'
+  'Service Graphics': {
+    role:'Digital Marketing Executive → Creative Digital Marketing Specialist', period:'Feb 2024 — Present',
+    blurb:'At Service Graphics I\'ve held two roles in succession — Digital Marketing Executive (Feb 2024 – Apr 2025), then Creative Digital Marketing Specialist (Apr 2025 – present) — and the work has spanned both design and digital throughout. I\'m design-led (InDesign brochures, case studies, business cards, wall planners and event/exhibition graphics), fully in charge of social media end to end — writing, designing and cutting short-form posts and videos, either from briefs I\'m given or from campaign ideas of my own — and I manage, build and update the company website. Service Graphics also sits within a wider group of sister brands and partners, so a number of the projects below cross over between them.'
   },
   'County Broadband': {
     role:'Digital Marketing Executive', period:'Oct 2022 — Dec 2023',
     blurb:'At County Broadband, a full-fibre broadband provider, I planned and delivered seasonal marketing campaigns end to end — social media, Mailchimp email marketing, and post-campaign analysis — working alongside the wider marketing, design and PR team. Each card below is a self-contained case study for a single seasonal campaign.'
   },
-  'Service Graphics': {
-    role:'Digital Marketing Executive → Creative Digital Marketing Specialist', period:'Feb 2024 — Present',
-    blurb:'At Service Graphics I\'ve held two roles in succession — Digital Marketing Executive (Feb 2024 – Apr 2025), then Creative Digital Marketing Specialist (Apr 2025 – present) — and the work has spanned both design and digital throughout. I\'m design-led (InDesign brochures, case studies, business cards, wall planners and event/exhibition graphics), fully in charge of social media end to end — writing, designing and cutting short-form posts and videos, either from briefs I\'m given or from campaign ideas of my own — and I manage, build and update the company website. Service Graphics also sits within a wider group of sister brands and partners (including actink, Human Built and Octink), so a number of the projects below cross over between them.'
+  'Spiran Ltd.': {
+    role:'Senior Marketing Executive (Freelance)', period:'Feb 2022 — Jan 2023',
+    blurb:'At Spiran Ltd., a single-origin saffron company, I managed the website and built out a new recipe blog, ran social media and Mailchimp email marketing, and worked directly on the sales side too — calling and converting leads to sell the product. My flagship project was founding and editing Spiran Magazine: three quarterly issues blending recipes, food culture and product storytelling, distributed to the community and promoted through email marketing to drive engagement and sales.'
+  },
+  'MPM Drive': {
+    role:'Marketing Executive', period:'Oct 2021 — Oct 2022',
+    blurb:'At MPM Drive I owned marketing strategy, the website and social media, and produced content for UK editorial media, events and market research. These two packages were built to grow the business beyond its core racing-fan audience — opening up the track-day experience to new niche groups, from friend groups chasing a shared passion to families, couples and students discovering motorsport for the first time.'
   }
 };
 const workItems = [
-  {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
-  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'},
-  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'Launch issue: saffron quality guide, spices & wellness, restaurant review and a traditional Spanish recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
-  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
-  {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'service-graphics-creative-portfolio.pdf', title:'Creative Portfolio', desc:'Full creative portfolio deck — InDesign design work (brochures, case studies, business cards, calendars), the Clean Air sustainability stand and goodies graphics, example decks, email marketing, quarterly newsletters, social media content and the POS campaign.', tag:'Portfolio deck', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-clean-air-reel.mp4', title:'Clean Air Campaign Reel', desc:'Short social reel for the Clean Air sustainability initiative, tying into the stand and goodies graphics created for Event Sustainability Live 2024.', tag:'Video — sustainability campaign', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-mailing-services-video.mp4', title:'Mailing Services Video', desc:'Promotional video for Service Graphics\' hybrid, direct and transactional mail services.', tag:'Video — email & mailing', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-pos-campaign-video.mp4', title:'POS Campaign Video', desc:'Video cut from the short Point of Sale campaign — benchmarking, cost efficiencies, FSDU and fabric production.', tag:'Video — POS campaign', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-uefa-2024.mp4', title:'UEFA Euro 2024', desc:'Creative video marking Service Graphics\' UEFA Euro 2024 season of visual communications and banner work.', tag:'Video — sports campaign', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-signature-banner.mp4', title:'Service Graphics Showcase Reel', desc:'General Service Graphics brand video, launched especially at events and trade shows to introduce the business.', tag:'Video — brand showcase', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-wrwc-project.mp4', title:'Women\'s Rugby World Cup Project', desc:'Short video highlighting the sustainability side of a Women\'s Rugby World Cup project, built around the Clean Air partnership and its environmental impact.', tag:'Video — sustainability project', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-2024-rewind.mp4', title:'Service Graphics — 2024 Rewind', desc:'Year-in-review highlights video celebrating Service Graphics\' 2024 projects and milestones.', tag:'Video — year in review', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-octink-2025-recap.mp4', title:'Octink — 2025 Recap', desc:'Year-in-review highlights video for sister brand Octink, covering 2025 projects and milestones.', tag:'Video — year in review', company:'Service Graphics'},
+  {type:'video', file:'service-graphics-sport-reel.mp4', title:'Sport Reel', desc:'Highlight reel compiling Service Graphics\' sports-sector creative work.', tag:'Video — sports highlights', company:'Service Graphics'},
   {type:'pdf', file:'county-broadband-christmas-campaign.pdf', title:'Campaign Overview', desc:'Two consecutive years (2022 & 2023) of Christmas campaign strategy and multi-channel content — social, email, PR and pop-up activation.', tag:'Strategy & execution write-up', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'pdf', file:'county-broadband-christmas-content-calendar.pdf', title:'Content Calendar & Planning', desc:'The full 2023 multi-channel content calendar (TikTok to van livery), plus the research and coordination behind it.', tag:'Planning document', company:'County Broadband', campaign:'Christmas Campaign'},
   {type:'pdf', file:'county-broadband-christmas-social-activities.pdf', title:'Social Media Activities Deck', desc:'The full 2023 social post-by-post breakdown for Instagram, Facebook and LinkedIn — creative, copy and captions for each.', tag:'Social content deck', company:'County Broadband', campaign:'Christmas Campaign'},
@@ -261,29 +266,20 @@ const workItems = [
   {type:'pdf', file:'county-broadband-rugby-campaign-overview.pdf', title:'Campaign Overview', desc:'Autumn 2023 "Kick Lag to Touch" Rugby World Cup campaign — landing page, email, direct mail, social, paid media and the Dodge Tackler game, plus full results.', tag:'Seasonal campaign case study', company:'County Broadband', campaign:'Rugby World Cup Campaign'},
   {type:'pdf', file:'county-broadband-rugby-game-concept.pdf', title:'Game Concept & Design', desc:'Ideation deck for the Dodge Tackler browser game — concept sketches, mechanics and screen-by-screen flow, from first pass to the selected build.', tag:'Game concept design', company:'County Broadband', campaign:'Rugby World Cup Campaign'},
   {type:'pdf', file:'county-broadband-rugby-social-email-tiktok.pdf', title:'Social, Email & TikTok Content', desc:'Full post-by-post breakdown for Instagram, Facebook, LinkedIn and TikTok, the 600Mbps/cashback/ticket ad creative, the TikTok office challenge and the Mailchimp email designs.', tag:'Social content deck', company:'County Broadband', campaign:'Rugby World Cup Campaign'},
-  {type:'pdf', file:'service-graphics-creative-portfolio.pdf', title:'Creative Portfolio', desc:'Full creative portfolio deck — InDesign design work (brochures, case studies, business cards, calendars), the Clean Air sustainability stand and goodies graphics, example decks, email marketing, quarterly newsletters, social media content and the POS campaign.', tag:'Portfolio deck', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-clean-air-reel.mp4', title:'Clean Air Campaign Reel', desc:'Short social reel for the Clean Air sustainability initiative, tying into the stand and goodies graphics created for Event Sustainability Live 2024.', tag:'Video — sustainability campaign', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-mailing-services-video.mp4', title:'Mailing Services Video', desc:'Promotional video for Service Graphics\' hybrid, direct and transactional mail services.', tag:'Video — email & mailing', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-pos-campaign-video.mp4', title:'POS Campaign Video', desc:'Video cut from the short Point of Sale campaign — benchmarking, cost efficiencies, FSDU and fabric production.', tag:'Video — POS campaign', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-uefa-2024.mp4', title:'UEFA Euro 2024', desc:'Creative video marking Service Graphics\' UEFA Euro 2024 season of visual communications and banner work.', tag:'Video — sports campaign', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-signature-banner.mp4', title:'Signature Banner', desc:'Product video for the Signature Banner display solution.', tag:'Video — product showcase', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-wrwc-project.mp4', title:'Women\'s Rugby World Cup Project', desc:'Video covering a Women\'s Rugby World Cup-related project.', tag:'Video — sports project', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-2024-rewind.mp4', title:'Service Graphics — 2024 Rewind', desc:'Year-in-review highlights video celebrating Service Graphics\' 2024 projects and milestones.', tag:'Video — year in review', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-octink-2025-recap.mp4', title:'Octink — 2025 Recap', desc:'Year-in-review highlights video for sister brand Octink, covering 2025 projects and milestones.', tag:'Video — year in review', company:'Service Graphics'},
-  {type:'video', file:'service-graphics-sport-reel.mp4', title:'Sport Reel', desc:'Highlight reel compiling Service Graphics\' sports-sector creative work.', tag:'Video — sports highlights', company:'Service Graphics'}
+  {type:'pdf', file:'spiran-magazine-vol1.pdf', title:'Spiran Magazine — Vol. 1', desc:'Launch issue: saffron quality guide, spices & wellness, restaurant review and a traditional Spanish recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol2.pdf', title:'Spiran Magazine — Vol. 2', desc:'Award-winning issue: spice history feature, restaurant review and a traditional Italian recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'spiran-magazine-vol3.pdf', title:'Spiran Magazine — Vol. 3', desc:'Saffron & wellness feature, restaurant review and a traditional Chilean recipe.', tag:'Content marketing: magazine', company:'Spiran Ltd.'},
+  {type:'pdf', file:'mpm-meetup-speedup-brochure.pdf', title:'Meet-Up Speed-Up', desc:'All-inclusive group track-day package for 12, designed to bring together people who share the same passion for racing.', tag:'Niche audience: enthusiast groups', company:'MPM Drive'},
+  {type:'pdf', file:'mpm-silverstone-360-brochure.pdf', title:'Silverstone @360', desc:'Tiered couple, family and student packages opening up motorsport to audiences beyond core racing fans.', tag:'Niche audience: families, couples & students', company:'MPM Drive'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
-const typeFiltersEl = document.getElementById('typeFilters');
 const companyFiltersEl = document.getElementById('companyFilters');
-const workFilters = [{key:'all', label:'All'},{key:'pdf', label:'PDF'},{key:'video', label:'Video'}];
 const companyKeys = ['All', ...Object.keys(myWorkCompanies)];
 let activeCompany = 'All';
-let activeType = 'all';
 function renderWork(){
   workGrid.innerHTML = '';
   const filtered = workItems
-    .filter(w => activeType==='all' || w.type===activeType)
     .filter(w => activeCompany==='All' || w.company===activeCompany);
 
   let i = 0;
@@ -337,18 +333,6 @@ function renderWork(){
     workIntroEl.innerHTML = '';
   }
 }
-workFilters.forEach(f => {
-  const b = document.createElement('button');
-  b.className = 'filter-btn' + (f.key==='all' ? ' active' : '');
-  b.textContent = f.label;
-  b.addEventListener('click', () => {
-    document.querySelectorAll('#typeFilters .filter-btn').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    activeType = f.key;
-    renderWork();
-  });
-  typeFiltersEl.appendChild(b);
-});
 companyKeys.forEach(k => {
   const b = document.createElement('button');
   b.className = 'filter-btn' + (k==='All' ? ' active' : '');
@@ -364,14 +348,7 @@ companyKeys.forEach(k => {
 renderWork();
 
 /* ---------------- Progetti di Lavoro (inside Portfolio) ---------------- */
-const jobProjects = [
-  {type:'pdf', file:'progetto-service-graphics.pdf', title:'Service Graphics', desc:'Advertising services — digital strategy, content and brand storytelling.', tag:'Work project'},
-  {type:'pdf', file:'progetto-wild-cosmetics.pdf', title:'Wild Cosmetics', desc:'E-commerce, Italian market.', tag:'Work project'},
-  {type:'pdf', file:'progetto-county-broadband.pdf', title:'County Broadband', desc:'Full fibre broadband — seasonal campaigns and lead generation.', tag:'Work project'},
-  {type:'pdf', file:'progetto-search-smartly.pdf', title:'Search Smartly', desc:'Real estate sector.', tag:'Work project'},
-  {type:'pdf', file:'progetto-spiran.pdf', title:'Spiran Ltd.', desc:'Retail/FMCG — website, blog and Spiran Magazine.', tag:'Work project'},
-  {type:'video', file:'progetto-mpm-drive.mp4', title:'MPM Drive', desc:'Events and track-day experiences at Silverstone.', tag:'Work project'}
-];
+const jobProjects = [];
 const jobProjGrid = document.getElementById('jobProjGrid');
 jobProjects.forEach(w => jobProjGrid.appendChild(workCard(w)));
 
@@ -383,18 +360,18 @@ const interviewCaseStudies = [
     execution:'Wrote and designed a LinkedIn carousel and a set of nine sequenced Instagram grid posts introducing the brand\'s services, each with on-brand copy and hashtags. Developed a concept reel built around an eye motif — visual perception meeting the company logo in the iris — to link the idea of "bringing any visual concept to life" directly to brand identity. Followed up with a real client showcase post for the Gymshark66 project, adapting tone for LinkedIn (professional, results-driven) versus Instagram (punchier, emoji-led) versions of the same story.',
     skills:['Social media content strategy','Copywriting & hashtag strategy','Concept development','Brand-guideline adherence','Cross-platform tone adaptation','Client project storytelling'],
     pdfs:[{label:'Campaign Deck', file:'progetto-service-graphics.pdf'},{label:'Watch Reel', file:'service-graphics-reel.mp4', type:'video'}] },
-  { sector:'E-commerce & Fashion', title:'Zara', sub:'PR and marketing campaign — fast fashion',
-    brief:'Build a full PR and marketing campaign for Zara, covering campaign messaging, target audience, a SWOT analysis, and a channel plan spanning outdoor advertising, digital advertising, media relations and social media.',
-    approach:'Started from Zara\'s existing brand positioning — fast fashion at an affordable price, elegance and simplicity, accessibility across a wide audience — and layered a SWOT analysis on top to identify where a campaign could add most value: global reach and a fast-changing collection as strengths to lean into, an image closely tied to competitors as a weakness to work around. Defined clear aims (drive traffic, build brand awareness, win the choice over competitor brands) before selecting channels.',
-    execution:'Proposed an Out-of-Home digital screen campaign for high-footfall locations, reasoning through why OOH suited the post-2020 moment. Concepted an original "Bubble Collection" spring campaign visual and a "#RESPECTRULES" awareness campaign tied to a "Stay Comfy" loungewear collection, both designed to fit Zara\'s minimal advertising style. Mapped digital advertising formats (banners, programmatic display) and a media relations plan built around real target titles (ELLE, HELLO!) and a fashion micro-influencer, plus a measurement plan (community analysis, paid vs organic, campaign report) and an example budget split across PR, social and advertising.',
-    skills:['SWOT analysis','Campaign concepting & original creative','Out-of-home & digital advertising planning','Media relations & influencer mapping','Budget planning','Measurement & reporting frameworks'],
-    pdfs:[{label:'PR Campaign', file:'zara-pr-marketing-campaign.pdf'}] },
   { sector:'E-commerce & Fashion', title:'Wild Cosmetics', sub:'Influencer marketing strategy — Italian market',
     brief:'Given a £100K quarterly influencer marketing budget, design the approach to deliver Wild\'s influencer campaigns in the Italian market: sourcing and outreach, negotiation, influencer selection, content deliverables and measurement.',
     approach:'Anchored the plan in Wild\'s own positioning — a sustainable, plastic-free deodorant brand where every sale funds tree planting — and built buyer personas for the Italian market from that starting point before sourcing a single influencer. Set clear campaign objectives (brand awareness, lead generation, product sales) and matched criteria (niche, engagement, brand fit) to guide research through tools such as Social Blade and HypeAuditor.',
     execution:'Compiled a researched shortlist of real Italian sustainability-focused nano-, micro- and mid-tier influencers with follower counts and a fit rating for each, then modelled a full budget split across influencer fees, shipping, licensing/copyright, paid boosting and contingency. Drafted tiered outreach templates (first contact, short pitch, follow-ups) in Italian, plus content deliverables — a bilingual campaign hashtag, personalised discount codes per influencer, and example on-brand caption copy — and set out a data plan (UTM tracking, performance review, iteration) to close the loop.',
     skills:['Influencer research & vetting','Budget modelling','Outreach copywriting (Italian)','Buyer persona development','Campaign measurement planning','Cross-border market adaptation'],
     pdfs:[{label:'Case Study', file:'progetto-wild-cosmetics.pdf'}] },
+  { sector:'E-commerce & Fashion', title:'Zara', sub:'PR and marketing campaign — fast fashion',
+    brief:'Build a full PR and marketing campaign for Zara, covering campaign messaging, target audience, a SWOT analysis, and a channel plan spanning outdoor advertising, digital advertising, media relations and social media.',
+    approach:'Started from Zara\'s existing brand positioning — fast fashion at an affordable price, elegance and simplicity, accessibility across a wide audience — and layered a SWOT analysis on top to identify where a campaign could add most value: global reach and a fast-changing collection as strengths to lean into, an image closely tied to competitors as a weakness to work around. Defined clear aims (drive traffic, build brand awareness, win the choice over competitor brands) before selecting channels.',
+    execution:'Proposed an Out-of-Home digital screen campaign for high-footfall locations, reasoning through why OOH suited the post-2020 moment. Concepted an original "Bubble Collection" spring campaign visual and a "#RESPECTRULES" awareness campaign tied to a "Stay Comfy" loungewear collection, both designed to fit Zara\'s minimal advertising style. Mapped digital advertising formats (banners, programmatic display) and a media relations plan built around real target titles (ELLE, HELLO!) and a fashion micro-influencer, plus a measurement plan (community analysis, paid vs organic, campaign report) and an example budget split across PR, social and advertising.',
+    skills:['SWOT analysis','Campaign concepting & original creative','Out-of-home & digital advertising planning','Media relations & influencer mapping','Budget planning','Measurement & reporting frameworks'],
+    pdfs:[{label:'PR Campaign', file:'zara-pr-marketing-campaign.pdf'}] },
   { sector:'Estates', title:'Search Smartly', sub:'Property marketing & social media strategy',
     brief:'Develop a social media and marketing strategy for a London property search agency, from brand messaging and a SWOT analysis through to concrete social content and a wider PR/media relations plan.',
     approach:'Started by defining the brand messages and target audience (a broad 21–60 demographic, middle/high income), then ran a full SWOT analysis to identify where the brand could grow — community connections and events as opportunities, established portals like Zoopla and Rightmove as the main competitive threat. From there, set objectives (market expansion, brand awareness, customer loyalty) and translated them into a communications strategy built on branding, emotional storytelling, digital support and PR.',
