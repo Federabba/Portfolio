@@ -134,7 +134,7 @@
     .qual-row{ grid-template-columns:1fr;}
     .qual-sq{ aspect-ratio:auto; min-height:220px; }
   }
-  .qual-sq{ aspect-ratio:1/1; background:var(--card); border:1.5px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; overflow:hidden; }
+  .qual-sq{ background:var(--card); border:1.5px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; overflow:hidden; }
   .qual-sq h4{ font-size:14px; display:flex; align-items:center; gap:9px; margin-bottom:12px; }
   .qual-sq h4 .ic{ width:28px; height:28px; border-radius:8px; background:var(--teal-deep); color:var(--aqua); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .qual-sq h4 .ic svg{ width:14px; height:14px; }
