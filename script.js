@@ -265,30 +265,52 @@ let activeCompany = 'All';
 let activeType = 'all';
 function renderWork(){
   workGrid.innerHTML = '';
-  let lastCampaignKey = null;
-  let lastCompany = null;
-  workItems
+  const filtered = workItems
     .filter(w => activeType==='all' || w.type===activeType)
-    .filter(w => activeCompany==='All' || w.company===activeCompany)
-    .forEach(w => {
-      if (activeCompany === 'All' && w.company !== lastCompany){
-        const divider = document.createElement('div');
-        divider.className = 'work-company-divider';
-        divider.innerHTML = `<span>${w.company}</span>`;
-        workGrid.appendChild(divider);
-        lastCompany = w.company;
-        lastCampaignKey = null;
+    .filter(w => activeCompany==='All' || w.company===activeCompany);
+
+  let i = 0;
+  let lastCompany = null;
+  while (i < filtered.length){
+    const w = filtered[i];
+    if (activeCompany === 'All' && w.company !== lastCompany){
+      const divider = document.createElement('div');
+      divider.className = 'work-company-divider';
+      divider.innerHTML = `<span>${w.company}</span>`;
+      workGrid.appendChild(divider);
+      lastCompany = w.company;
+    }
+    if (w.campaign){
+      // collect the run of consecutive items sharing this campaign
+      const group = [];
+      while (i < filtered.length && filtered[i].campaign === w.campaign && filtered[i].company === w.company){
+        group.push(filtered[i]);
+        i++;
       }
-      const campaignKey = w.company + '|' + (w.campaign || '');
-      if (w.campaign && campaignKey !== lastCampaignKey){
-        const heading = document.createElement('div');
-        heading.className = 'work-campaign-title';
-        heading.textContent = w.campaign;
-        workGrid.appendChild(heading);
-      }
-      lastCampaignKey = campaignKey;
-      workGrid.appendChild(workCard(w));
-    });
+      const cols = Math.min(group.length, 3);
+      const basis = cols === 1 ? 'calc(33.333% - 12px)' : cols === 2 ? 'calc(66.666% - 6px)' : '100%';
+      const wrap = document.createElement('div');
+      wrap.className = 'work-campaign-group';
+      wrap.style.flexBasis = basis;
+      wrap.style.maxWidth = basis;
+      const heading = document.createElement('div');
+      heading.className = 'work-campaign-title';
+      heading.textContent = w.campaign;
+      wrap.appendChild(heading);
+      const cardsWrap = document.createElement('div');
+      cardsWrap.className = 'work-campaign-cards';
+      cardsWrap.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      group.forEach(g => cardsWrap.appendChild(workCard(g)));
+      wrap.appendChild(cardsWrap);
+      workGrid.appendChild(wrap);
+    } else {
+      const card = workCard(w);
+      card.classList.add('work-card-standalone');
+      workGrid.appendChild(card);
+      i++;
+    }
+  }
+
   if(activeCompany !== 'All' && myWorkCompanies[activeCompany]){
     const info = myWorkCompanies[activeCompany];
     workIntroEl.style.display = 'block';
