@@ -251,7 +251,9 @@ const workItems = [
      {file:'county-broadband-email-speed.png', label:'Speed'},
      {file:'county-broadband-email-reliability.png', label:'Reliability'},
      {file:'county-broadband-email-game.png', label:'Samurai Santa game'}
-   ]}
+   ]},
+  {type:'pdf', file:'county-broadband-valentines-campaign.pdf', title:'Campaign Overview', desc:'February 2023 "there\'s no love without connection" campaign — brand identity, social post concepts and competition ideas built around Valentine\'s Day.', tag:'Seasonal campaign case study', company:'County Broadband', campaign:'Valentine\'s Campaign'},
+  {type:'pdf', file:'county-broadband-black-friday-campaign.pdf', title:'Campaign Overview', desc:'Black Friday 2023 social engagement — the "Where\'s Emoji?" Gleam.io hunt competition, a scheduled post calendar and Mailchimp emails for the £1/month offer.', tag:'Seasonal campaign case study', company:'County Broadband', campaign:'Black Friday Campaign'}
 ];
 const workGrid = document.getElementById('workGrid');
 const workIntroEl = document.getElementById('workIntro');
