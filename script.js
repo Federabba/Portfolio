@@ -360,7 +360,7 @@ const jobProjects = [
 const jobProjGrid = document.getElementById('jobProjGrid');
 function projectCard(p){
   const el = document.createElement('div');
-  el.className = 'work-card work-card-standalone';
+  el.className = 'work-card work-card-standalone project-card';
   el.innerHTML = `
     <h4>${p.title}</h4>
     ${p.period ? `<div style="font-size:12.5px; color:var(--ink-soft); margin-top:-8px;">${p.period}</div>` : ''}
